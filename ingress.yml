@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: webingress
+spec:
+   ingressClassName: nginx
+   rules:
+   - host: "ab344cee8b0a4490c88543dc2d762b60-545567303.us-east-1.elb.amazonaws.com"
+     http:
+       paths:
+       - path: "/"
+         pathType: Prefix
+         backend:
+           service:
+            name: websvc
+            port:
+             number: 80
+
